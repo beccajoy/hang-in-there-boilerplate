@@ -118,10 +118,10 @@ var currentPoster = new Poster(currentImage, currentTitle, currentQuote);
 
 // event listeners go here 👇
 //showRandomButton.addEventListener('click', getRandomImage);
-makeYourOwnButton.addEventListener('click', showFormPage);
-savedPostersButton.addEventListener('click', showSavedPosters);
-backToMainButton.addEventListener('click', backToMain);
-nevermindButton.addEventListener('click', backToMainFromNevermind)
+makeYourOwnButton.addEventListener('click', ()=>toggleHide(mainPoster, hiddenFormPage));
+savedPostersButton.addEventListener('click', ()=>toggleHide(mainPoster, savedPostersPage));
+backToMainButton.addEventListener('click', ()=>toggleHide(savedPostersPage, mainPoster));
+nevermindButton.addEventListener('click', ()=>toggleHide(hiddenFormPage, mainPoster))
 
 // functions and event handlers go here 👇
 currentImage.src = images[getRandomIndex(images)];
@@ -133,33 +133,17 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-//.toggle to refactor?
-function showFormPage() {
-  mainPoster.classList.add('hidden');
-  hiddenFormPage.classList.remove('hidden');
+function toggleHide(pageToHide, pageToShow) {
+  pageToHide.classList.add('hidden');
+  pageToShow.classList.remove('hidden');
 }
 
-function showSavedPosters () {
-  mainPoster.classList.add('hidden');
-  savedPostersPage.classList.remove('hidden');
-}
-
-function backToMain() {
-  savedPostersPage.classList.add('hidden');
-  mainPoster.classList.remove('hidden');
-}
-
-function backToMainFromNevermind() {
-  hiddenFormPage.classList.add('hidden');
-  mainPoster.classList.remove('hidden');
-}
-
-function getRandomImage() {
-  var randomIndex = getRandomIndex(images); //gets randomIndex for image array
-  var randomImage = images[randomIndex]; //gets random value from image array
-  console.log(currentImage);
-  currentImage.src = randomImage; //setting currentImage to this randomImage
-}
+// function getRandomImage() {
+//   var randomIndex = getRandomIndex(images); //gets randomIndex for image array
+//   var randomImage = images[randomIndex]; //gets random value from image array
+//   console.log(currentImage);
+//   currentImage.src = randomImage; //setting currentImage to this randomImage
+// }
 
 //formerly in the var savedPosters
 // makePoster(
