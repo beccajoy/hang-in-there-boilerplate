@@ -4,14 +4,14 @@ var currentTitle = document.querySelector('.poster-title');
 var currentQuote = document.querySelector('.poster-quote');
 
 var makeYourOwnButton = document.querySelector('.show-form');
-var hiddenFormPage = document.querySelector('.poster-form');
-var mainPoster = document.querySelector('.main-poster');
 var savedPostersButton = document.querySelector('.show-saved');
-var savedPostersPage = document.querySelector('.saved-posters');
 var backToMainButton = document.querySelector('.back-to-main');
 var nevermindButton = document.querySelector('.show-main');
+var hiddenFormPage = document.querySelector('.poster-form');
+var mainPosterPage = document.querySelector('.main-poster');
+var savedPostersPage = document.querySelector('.saved-posters');
 
-var showRandomButton = document.querySelector('.show-random');
+//var showRandomButton = document.querySelector('.show-random');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -118,10 +118,10 @@ var currentPoster = new Poster(currentImage, currentTitle, currentQuote);
 
 // event listeners go here 👇
 //showRandomButton.addEventListener('click', getRandomImage);
-makeYourOwnButton.addEventListener('click', ()=>toggleHide(mainPoster, hiddenFormPage));
-savedPostersButton.addEventListener('click', ()=>toggleHide(mainPoster, savedPostersPage));
-backToMainButton.addEventListener('click', ()=>toggleHide(savedPostersPage, mainPoster));
-nevermindButton.addEventListener('click', ()=>toggleHide(hiddenFormPage, mainPoster))
+makeYourOwnButton.addEventListener('click', ()=>toggleHide(mainPosterPage, hiddenFormPage));
+savedPostersButton.addEventListener('click', ()=>toggleHide(mainPosterPage, savedPostersPage));
+backToMainButton.addEventListener('click', ()=>toggleHide(savedPostersPage, mainPosterPage));
+nevermindButton.addEventListener('click', ()=>toggleHide(hiddenFormPage, mainPosterPage))
 
 // functions and event handlers go here 👇
 currentImage.src = images[getRandomIndex(images)];
