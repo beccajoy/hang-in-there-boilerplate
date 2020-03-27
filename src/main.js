@@ -1,7 +1,7 @@
 // query selector variables go here 👇
-var currentImage = document.querySelector('.poster-img');
-var currentTitle = document.querySelector('.poster-title');
-var currentQuote = document.querySelector('.poster-quote');
+var posterTitle = document.querySelector('.poster-title');
+var posterQuote = document.querySelector('.poster-quote');
+var posterImage = document.querySelector('.poster-img');
 
 var makeYourOwnButton = document.querySelector('.show-form');
 var savedPostersButton = document.querySelector('.show-saved');
@@ -111,9 +111,10 @@ var quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
+
 var savedPosters = [
 ];
-var currentPoster = new Poster(currentImage, currentTitle, currentQuote);
+var currentPoster = new Poster(posterImage, posterTitle, posterQuote);
 
 
 // event listeners go here 👇
@@ -124,10 +125,11 @@ backToMainButton.addEventListener('click', ()=>toggleHide(savedPostersPage, main
 nevermindButton.addEventListener('click', ()=>toggleHide(hiddenFormPage, mainPosterPage))
 
 // functions and event handlers go here 👇
-currentImage.src = images[getRandomIndex(images)];
-currentTitle.innerText = titles[getRandomIndex(titles)];
-currentQuote.innerText = quotes[getRandomIndex(quotes)];
+posterImage.src = images[getRandomIndex(images)];
+posterTitle.innerText = titles[getRandomIndex(titles)];
+posterQuote.innerText = quotes[getRandomIndex(quotes)];
 
+// new code
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -141,8 +143,8 @@ function toggleHide(pageToHide, pageToShow) {
 // function getRandomImage() {
 //   var randomIndex = getRandomIndex(images); //gets randomIndex for image array
 //   var randomImage = images[randomIndex]; //gets random value from image array
-//   console.log(currentImage);
-//   currentImage.src = randomImage; //setting currentImage to this randomImage
+//   console.log(posterImage);
+//   posterImage.src = randomImage; //setting posterImage to this randomImage
 // }
 
 //formerly in the var savedPosters
