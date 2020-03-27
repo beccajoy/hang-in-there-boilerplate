@@ -2,7 +2,16 @@
 var currentImage = document.querySelector('.poster-img');
 var currentTitle = document.querySelector('.poster-title');
 var currentQuote = document.querySelector('.poster-quote');
-//var showRandomButton = document.querySelector('.show-random');
+
+var makeYourOwnButton = document.querySelector('.show-form');
+var hiddenFormPage = document.querySelector('.poster-form');
+var mainPoster = document.querySelector('.main-poster');
+var savedPostersButton = document.querySelector('.show-saved');
+var savedPostersPage = document.querySelector('.saved-posters');
+var backToMainButton = document.querySelector('.back-to-main');
+var nevermindButton = document.querySelector('.show-main');
+
+var showRandomButton = document.querySelector('.show-random');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -102,18 +111,17 @@ var quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
-// var savedPosters = [
-//   makePoster(
-//     "https://i.giphy.com/media/5LU6ZcEGBbhVS/giphy.gif",
-//     "Optimism",
-//     "Keep a joyful heart!"
-//   )
-// ];
+var savedPosters = [
+];
 var currentPoster = new Poster(currentImage, currentTitle, currentQuote);
 
 
 // event listeners go here 👇
 //showRandomButton.addEventListener('click', getRandomImage);
+makeYourOwnButton.addEventListener('click', showFormPage);
+savedPostersButton.addEventListener('click', showSavedPosters);
+backToMainButton.addEventListener('click', backToMain);
+nevermindButton.addEventListener('click', backToMainFromNevermind)
 
 // functions and event handlers go here 👇
 currentImage.src = images[getRandomIndex(images)];
@@ -125,9 +133,37 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-// function getRandomImage() {
-//   var randomIndex = getRandomIndex(images); //gets randomIndex for image array
-//   var randomImage = images[randomIndex]; //gets random value from image array
-//   console.log(currentImage);
-//   currentImage.src = randomImage; //setting currentImage to this randomImage
-// }
+//.toggle to refactor?
+function showFormPage() {
+  mainPoster.classList.add('hidden');
+  hiddenFormPage.classList.remove('hidden');
+}
+
+function showSavedPosters () {
+  mainPoster.classList.add('hidden');
+  savedPostersPage.classList.remove('hidden');
+}
+
+function backToMain() {
+  savedPostersPage.classList.add('hidden');
+  mainPoster.classList.remove('hidden');
+}
+
+function backToMainFromNevermind() {
+  hiddenFormPage.classList.add('hidden');
+  mainPoster.classList.remove('hidden');
+}
+
+function getRandomImage() {
+  var randomIndex = getRandomIndex(images); //gets randomIndex for image array
+  var randomImage = images[randomIndex]; //gets random value from image array
+  console.log(currentImage);
+  currentImage.src = randomImage; //setting currentImage to this randomImage
+}
+
+//formerly in the var savedPosters
+// makePoster(
+//   "https://i.giphy.com/media/5LU6ZcEGBbhVS/giphy.gif",
+//   "Optimism",
+//   "Keep a joyful heart!"
+// )
