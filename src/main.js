@@ -14,6 +14,7 @@ var titleInput = document.getElementById("poster-title");
 var quoteInput = document.getElementById("poster-quote");
 var imageInput = document.getElementById("poster-image-url");
 var savePosterButton = document.querySelector('.save-poster');
+// var showRandomButton = document.querySelector('.show-random');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -124,6 +125,7 @@ nevermindButton.addEventListener('click', nevermindGoBack);
 backToMainButton.addEventListener('click', backToMain);
 showPosterButton.addEventListener('click', showPoster);
 savePosterButton.addEventListener('click', saveThePoster);
+// showRandomButton.addEventListener('click', getRandomImage);
 
 // functions and event handlers go here 👇
 posterImage.src = images[getRandomIndex(images)];
@@ -197,3 +199,10 @@ function showPoster(event) {
   posterTitle.innerText = createdPoster.title;
   posterQuote.innerText = createdPoster.quote;
 }
+
+// function getRandomImage() {
+//   var randomIndex = getRandomIndex(images); //gets randomIndex for image array
+//   var randomImage = images[randomIndex]; //gets random value from image array
+//   console.log(posterImage);
+//   posterImage.src = randomImage; //setting posterImage to this randomImage
+// }
