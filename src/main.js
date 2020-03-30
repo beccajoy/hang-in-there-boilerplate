@@ -13,6 +13,7 @@ var showPosterButton = document.querySelector('.make-poster');
 var titleInput = document.getElementById("poster-title");
 var quoteInput = document.getElementById("poster-quote");
 var imageInput = document.getElementById("poster-image-url");
+var savePosterButton = document.querySelector('.save-poster');
 
 // var makePosterButton = document.querySelector('.save-button');
 
@@ -125,8 +126,11 @@ makeYourOwnButton.addEventListener('click', showForm);
 savedPostersButton.addEventListener('click', showSavedPosters);
 takeMeBackButton.addEventListener('click', takeMeBack);
 backToMainButton.addEventListener('click', backToMain);
-// makePosterButton.addEventListener('click', makePoster);
 showPosterButton.addEventListener('click', showPoster);
+// savePosterButton.addEventListener('click', saveThePoster);
+
+// makePosterButton.addEventListener('click', makePoster);
+
 // functions and event handlers go here 👇
 
 posterImage.src = images[getRandomIndex(images)];
@@ -136,10 +140,32 @@ posterQuote.innerText = quotes[getRandomIndex(quotes)];
 // new code
 // (we've provided one for you to get you started)!
 
-// * capture user input and push values into the arrays
-// * use those values and create a new poster class instance
-// * go back to main poster view
-// * the new user input will show on the main page
+// If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
+// All the posters in the savedPosters array should be displayed in the saved posters grid section
+
+function Poster() {
+  var currentPoster = new Poster(posterImage.src, posterTitle.innerText, posterQuote.innerText);
+  savedPosters.push(currentPoster);
+
+
+  var foundPoster = savedPosters.find(function(value) {
+    if(currentPoster.imageURL === value.imageURL && currentPoster.title === value.title && currentPoster.quote === value.quote) {
+    return value;
+    }
+  });
+
+  if(foundPoster === undefined) {
+    savedPosters.push(currentPoster);
+  }
+  console.log(savedPosters);
+}
+
+
+// function savedGallery() {
+//   //should take savedPosters array, apply CSS .saved-posters-grid + .mini-poster onto the .saved-posters section(html)
+//   //this fxn will live under showSavedPosters fxn
+//   savedPosters.
+// }
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
