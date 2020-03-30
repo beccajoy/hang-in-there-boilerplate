@@ -5,16 +5,14 @@ var posterImage = document.querySelector("img.poster-img");
 var makeYourOwnButton = document.querySelector('.show-form');
 var makePosterForm = document.querySelector('.poster-form');
 var mainPage = document.querySelector('.main-poster');
-var savedPostersButton = document.querySelector('.show-saved');
-var savedPostersArea = document.querySelector('.saved-posters');
-var takeMeBackButton = document.querySelector('.show-main');
+var showSavedButton = document.querySelector('.show-saved');
+var savedPostersSection = document.querySelector('.saved-posters');
+var nevermindButton = document.querySelector('.show-main');
 var backToMainButton = document.querySelector('.back-to-main');
 var showPosterButton = document.querySelector('.make-poster');
 var titleInput = document.getElementById("poster-title");
 var quoteInput = document.getElementById("poster-quote");
 var imageInput = document.getElementById("poster-image-url");
-
-// var makePosterButton = document.querySelector('.save-button');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -118,51 +116,41 @@ var savedPosters = [];
 
 var currentPoster = new Poster(posterImage, posterTitle, posterQuote);
 
-
 // event listeners go here 👇
-
-makeYourOwnButton.addEventListener('click', showForm);
-savedPostersButton.addEventListener('click', showSavedPosters);
-takeMeBackButton.addEventListener('click', takeMeBack);
+makeYourOwnButton.addEventListener('click', showFormSection);
+showSavedButton.addEventListener('click', showSavedPosters);
+nevermindButton.addEventListener('click', nevermindGoBack);
 backToMainButton.addEventListener('click', backToMain);
-// makePosterButton.addEventListener('click', makePoster);
 showPosterButton.addEventListener('click', showPoster);
-// functions and event handlers go here 👇
 
+// functions and event handlers go here 👇
 posterImage.src = images[getRandomIndex(images)];
 posterTitle.innerText = titles[getRandomIndex(titles)];
 posterQuote.innerText = quotes[getRandomIndex(quotes)];
 
-// new code
 // (we've provided one for you to get you started)!
-
-// * capture user input and push values into the arrays
-// * use those values and create a new poster class instance
-// * go back to main poster view
-// * the new user input will show on the main page
-
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function showForm() {
+function showFormSection() {
   mainPage.classList.add('hidden');
   makePosterForm.classList.remove('hidden');
 }
 
 function showSavedPosters() {
   mainPage.classList.add('hidden');
-  savedPostersArea.classList.remove('hidden');
+  savedPostersSection.classList.remove('hidden');
 }
 
-function takeMeBack() {
+function nevermindGoBack() {
   mainPage.classList.remove('hidden');
   makePosterForm.classList.add('hidden');
 }
 
 function backToMain() {
   mainPage.classList.remove('hidden');
-  savedPostersArea.classList.add('hidden');
+  savedPostersSection.classList.add('hidden');
 }
 
 function showPoster(event) {
