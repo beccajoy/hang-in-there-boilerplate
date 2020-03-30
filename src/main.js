@@ -14,7 +14,8 @@ var titleInput = document.getElementById("poster-title");
 var quoteInput = document.getElementById("poster-quote");
 var imageInput = document.getElementById("poster-image-url");
 var savePosterButton = document.querySelector('.save-poster');
-// var showRandomButton = document.querySelector('.show-random');
+var showRandomButton = document.querySelector('.show-random');
+// var posterGallery = document.querySelector('.')
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -125,7 +126,7 @@ nevermindButton.addEventListener('click', nevermindGoBack);
 backToMainButton.addEventListener('click', backToMain);
 showPosterButton.addEventListener('click', showPoster);
 savePosterButton.addEventListener('click', saveThePoster);
-// showRandomButton.addEventListener('click', getRandomImage);
+showRandomButton.addEventListener('click', getRandomImage);
 
 // functions and event handlers go here 👇
 posterImage.src = images[getRandomIndex(images)];
@@ -140,21 +141,21 @@ function saveThePoster() {
 
   var foundPoster = savedPosters.find(function(value) {
     if(currentPoster.imageURL === value.imageURL && currentPoster.title === value.title && currentPoster.quote === value.quote) {
-    return value;
-    }
-  })
+        return value;
+      }
+    })
 
-  if(foundPoster === undefined) {
-    savedPosters.push(currentPoster);
-  }
+    if(foundPoster === undefined) {
+      savedPosters.push(currentPoster);
+    }
   console.log(savedPosters);
 }
 
-// function savedGallery() {
-//   //should take savedPosters array, apply CSS .saved-posters-grid + .mini-poster onto the .saved-posters section(html)
-//   //this fxn will live under showSavedPosters fxn
-//   savedPosters.
-// }
+//alex's  way
+// var saveThisPoster = new Poster(posterImage.src, posterTitle.innerText, posterQuote.innerText);
+// if (saveThisPoster != )
+// savedPosters.push(saveThisPoster);
+// saveThePoster.disabled = true;
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -168,6 +169,21 @@ function showFormSection() {
 function showSavedPosters() {
   mainPage.classList.add('hidden');
   savedPostersSections.classList.remove('hidden');
+
+  function revealPosterGallery() {
+    //should take savedPosters array, apply CSS .saved-posters-grid + .mini-poster onto the .saved-posters section(html)
+    if(savedPosters.length > 0) {
+      for (var i = 0; i < savedPosters.length; i++) {
+        savedPostersSections.classList.add('saved-posters-grid');
+        savedPostersSections.insertAdjacentHTML('afterbegin', `
+          <div class='mini-poster' data-id=${savedPosters[i].id.classList.add('saved-posters-grid')}>
+            <img src=${savedPosters[i].imageURL.src.classList.add('img')}>
+            <h1>${savedPosters[i].title.innerText.classList.add('h2')}</h1>
+            <h3>${savedPosters[i].quote.innerText.classList.add('h4')}</h3>
+          </div>`);
+      }
+    }
+  }
 }
 
 function nevermindGoBack() {
@@ -200,9 +216,9 @@ function showPoster(event) {
   posterQuote.innerText = createdPoster.quote;
 }
 
-// function getRandomImage() {
-//   var randomIndex = getRandomIndex(images); //gets randomIndex for image array
-//   var randomImage = images[randomIndex]; //gets random value from image array
-//   console.log(posterImage);
-//   posterImage.src = randomImage; //setting posterImage to this randomImage
-// }
+function getRandomImage() {
+  var randomIndex = getRandomIndex(images); //gets randomIndex for image array
+  var randomImage = images[randomIndex]; //gets random value from image array
+  console.log(posterImage);
+  posterImage.src = randomImage; //setting posterImage to this randomImage
+}
