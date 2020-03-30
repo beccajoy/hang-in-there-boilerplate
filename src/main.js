@@ -5,17 +5,15 @@ var posterImage = document.querySelector("img.poster-img");
 var makeYourOwnButton = document.querySelector('.show-form');
 var makePosterForm = document.querySelector('.poster-form');
 var mainPage = document.querySelector('.main-poster');
-var savedPostersButton = document.querySelector('.show-saved');
-var savedPostersArea = document.querySelector('.saved-posters');
-var takeMeBackButton = document.querySelector('.show-main');
+var showSavedButton = document.querySelector('.show-saved');
+var savedPostersSections = document.querySelector('.saved-posters');
+var nevermindButton = document.querySelector('.show-main');
 var backToMainButton = document.querySelector('.back-to-main');
 var showPosterButton = document.querySelector('.make-poster');
 var titleInput = document.getElementById("poster-title");
 var quoteInput = document.getElementById("poster-quote");
 var imageInput = document.getElementById("poster-image-url");
 var savePosterButton = document.querySelector('.save-poster');
-
-// var makePosterButton = document.querySelector('.save-button');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -119,47 +117,36 @@ var savedPosters = [];
 
 var currentPoster = new Poster(posterImage, posterTitle, posterQuote);
 
-
 // event listeners go here 👇
-
-makeYourOwnButton.addEventListener('click', showForm);
-savedPostersButton.addEventListener('click', showSavedPosters);
-takeMeBackButton.addEventListener('click', takeMeBack);
+makeYourOwnButton.addEventListener('click', showFormSection);
+showSavedButton.addEventListener('click', showSavedPosters);
+nevermindButton.addEventListener('click', nevermindGoBack);
 backToMainButton.addEventListener('click', backToMain);
 showPosterButton.addEventListener('click', showPoster);
-// savePosterButton.addEventListener('click', saveThePoster);
-
-// makePosterButton.addEventListener('click', makePoster);
+savePosterButton.addEventListener('click', saveThePoster);
 
 // functions and event handlers go here 👇
-
 posterImage.src = images[getRandomIndex(images)];
 posterTitle.innerText = titles[getRandomIndex(titles)];
 posterQuote.innerText = quotes[getRandomIndex(quotes)];
 
-// new code
 // (we've provided one for you to get you started)!
 
-// If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
 // All the posters in the savedPosters array should be displayed in the saved posters grid section
-
-function Poster() {
+function saveThePoster() {
   var currentPoster = new Poster(posterImage.src, posterTitle.innerText, posterQuote.innerText);
-  savedPosters.push(currentPoster);
-
 
   var foundPoster = savedPosters.find(function(value) {
     if(currentPoster.imageURL === value.imageURL && currentPoster.title === value.title && currentPoster.quote === value.quote) {
     return value;
     }
-  });
+  })
 
   if(foundPoster === undefined) {
     savedPosters.push(currentPoster);
   }
   console.log(savedPosters);
 }
-
 
 // function savedGallery() {
 //   //should take savedPosters array, apply CSS .saved-posters-grid + .mini-poster onto the .saved-posters section(html)
@@ -171,24 +158,24 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function showForm() {
+function showFormSection() {
   mainPage.classList.add('hidden');
   makePosterForm.classList.remove('hidden');
 }
 
 function showSavedPosters() {
   mainPage.classList.add('hidden');
-  savedPostersArea.classList.remove('hidden');
+  savedPostersSections.classList.remove('hidden');
 }
 
-function takeMeBack() {
+function nevermindGoBack() {
   mainPage.classList.remove('hidden');
   makePosterForm.classList.add('hidden');
 }
 
 function backToMain() {
   mainPage.classList.remove('hidden');
-  savedPostersArea.classList.add('hidden');
+  savedPostersSections.classList.add('hidden');
 }
 
 function showPoster(event) {
