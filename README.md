@@ -1,6 +1,10 @@
 # Hang In There
 
-A boilerplate repo. 
+A boilerplate repo.
+
+## Contributors
+- Kyle Jones [Kyle's GitHub] (https://github.com/KJJones13) & Becca Steinbrecher [Becca's GitHub] (https://github.com/beccajoy)
+- [GitHub Pages Deployed Site] (https://beccajoy.github.io/hang-in-there-boilerplate/)
 
 ## Set Up
 
