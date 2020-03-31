@@ -24,6 +24,9 @@ Sometimes you need a pick me up. Remember those motivational posters that were a
 - Understand event bubbling and use event delegation on dynamic elements
 - Begin to understand how to write effective, clean HTML & CSS
 
+## Technologies Used
+- JavaScript
+
 ## Progression
 
 ### Iteration 0 - Main Page
