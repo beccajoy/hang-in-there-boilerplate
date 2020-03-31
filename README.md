@@ -65,7 +65,7 @@ Once poster is saved:
   - Change back to the main poster view (hiding the form view again)
   - Display the newly created poster image, title, and quote in the main view
 
-## Iteration 3 - Saving & Viewing Posters
+## Iteration 3 - Saving Posters
 
 Saved posters view:
 ![screenshot of saved posters section](/readme-imgs/saved.png)
