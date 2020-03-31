@@ -15,7 +15,8 @@ var quoteInput = document.getElementById("poster-quote");
 var imageInput = document.getElementById("poster-image-url");
 var savePosterButton = document.querySelector('.save-poster');
 var showRandomButton = document.querySelector('.show-random');
-// var posterGallery = document.querySelector('.')
+var posterGallery = document.querySelector('.saved-posters-grid');
+var miniPoster = document.querySelector('.mini-poster');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -139,13 +140,13 @@ posterQuote.innerText = quotes[getRandomIndex(quotes)];
 function saveThePoster() {
   var currentPoster = new Poster(posterImage.src, posterTitle.innerText, posterQuote.innerText);
 
-  var foundPoster = savedPosters.find(function(value) {
-    if(currentPoster.imageURL === value.imageURL && currentPoster.title === value.title && currentPoster.quote === value.quote) {
-        return value;
+  var doesPosterExist = savedPosters.find(function(posterExisting) {
+    if(currentPoster.imageURL === posterExisting.imageURL && currentPoster.title === posterExisting.title && currentPoster.quote === posterExisting.quote) {
+        return posterExisting;
       }
     })
 
-    if(foundPoster === undefined) {
+    if(doesPosterExist === undefined) {
       savedPosters.push(currentPoster);
     }
   console.log(savedPosters);
@@ -170,21 +171,40 @@ function showSavedPosters() {
   mainPage.classList.add('hidden');
   savedPostersSections.classList.remove('hidden');
 
-  function revealPosterGallery() {
-    //should take savedPosters array, apply CSS .saved-posters-grid + .mini-poster onto the .saved-posters section(html)
-    if(savedPosters.length > 0) {
-      for (var i = 0; i < savedPosters.length; i++) {
-        savedPostersSections.classList.add('saved-posters-grid');
-        savedPostersSections.insertAdjacentHTML('afterbegin', `
-          <div class='mini-poster' data-id=${savedPosters[i].id.classList.add('saved-posters-grid')}>
-            <img src=${savedPosters[i].imageURL.src.classList.add('img')}>
-            <h1>${savedPosters[i].title.innerText.classList.add('h2')}</h1>
-            <h3>${savedPosters[i].quote.innerText.classList.add('h4')}</h3>
-          </div>`);
-      }
+  if(savedPosters.length != 0) {
+    for (var i = 0; i < savedPosters.length; i++) {
+    posterGallery.insertAdjacentHTML('afterbegin',`
+      <div class='mini-poster' data-id=${savedPosters[i].id}>
+      <img src=${savedPosters[i].imageURL}>
+      <h2>${savedPosters[i].title}</h2>
+      <h4>${savedPosters[i].quote}</h4>
+      </div>
+    `);
     }
   }
 }
+
+// function revealPosterGallery(){
+//   posterGallery.insertAdjacentHTML('afterbegin', imgElement + titleElement + quoteElement);
+//   var imageUrlFromArray = savedPosters[0].imageURL;
+//   var imgElement = `<article class="mini-poster img" src="${imageUrlFromArray}"></article>`
+//   var titleFromArray = savedPosters[0].title;
+//   var titleElement = `<article class="mini-poster h2"> ${titleFromArray}</article>`
+//   var quoteFromArray = savedPosters[0].quote;
+//   var quoteElement = `<article class="mini-poster h4"> ${quoteFromArray}</article>`
+// }
+
+// function revealPosterGallery() {
+// if(savedPosters.length != 0) {
+//   for (var i = 0; i < savedPosters.length; i++) {
+//     posterGallery.insertAdjacentHTML('afterbegin', `
+//     <div class='mini-poster' data-id=${savedPosters[i].id}>
+//     <img src=${savedPosters[i].imageURL}>
+//     <h1>${savedPosters[i].title}</h1>
+//     <h3>${savedPosters[i].quote}</h3>
+//     </div>`);
+//   }
+// }
 
 function nevermindGoBack() {
   mainPage.classList.remove('hidden');
