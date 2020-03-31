@@ -6,6 +6,9 @@ A boilerplate repo.
 - Kyle Jones ([Kyle's GitHub](https://github.com/KJJones13)) & Becca Steinbrecher ([Becca's GitHub](https://github.com/beccajoy))
 - [GitHub Pages Deployed Site](https://beccajoy.github.io/hang-in-there-boilerplate/)
 
+## About
+Sometimes you need a pick me up. Remember those motivational posters that were all over the place in classrooms and online? We're going to make our own!
+
 ## Set Up
 
 1. One teammate: fork this repository
