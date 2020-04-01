@@ -67,9 +67,6 @@ Once poster is saved:
 
 ## Iteration 3 - Saving Posters
 
-Saved posters view:
-![screenshot of saved posters section](/readme-imgs/saved.png)
-
 - When a user clicks the "Save This Poster" button, the current main poster will be added to the `savedPosters` array.
 - If a user clicks the "Save This Poster" more than once on a single poster, it will still only be saved once (no duplicates)
 - Since our Saved Posters Section is not currently revealing the grid of mini posters, which displays the Saved Posters array, we have left a `console.log(savedPosters)` (on line 171). Within the Dev Tools, when "Save This Poster" is clicked, the current savedPosters array will show, and demonstrate that duplicate poster's are not accepted.
