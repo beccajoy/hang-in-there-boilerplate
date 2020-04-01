@@ -23,6 +23,14 @@ Sometimes you need a pick me up. Remember those motivational posters that were a
 - Understand event bubbling and use event delegation on dynamic elements
 - Begin to understand how to write effective, clean HTML & CSS
 
+### Wins
+- Understanding and implementing git commands and branches
+- Working with DOM
+
+### Challenges
+- Mitigating differences in personal work preferences
+- Getting through the learning curve of code-pairing while 100% remote
+
 ## Technologies Used
 - JavaScript
 
@@ -71,4 +79,4 @@ Once poster is saved:
 - If a user clicks the "Save This Poster" more than once on a single poster, it will still only be saved once (no duplicates)
 - Since our Saved Posters Section is not currently revealing the grid of mini posters, which displays the Saved Posters array, we have left a `console.log(savedPosters)` (on line 171). Within the Dev Tools, when "Save This Poster" is clicked, the current savedPosters array will show, and demonstrate that duplicate poster's are not accepted.
 
-Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/hang-in-there.html)
+( Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/hang-in-there.html) )
