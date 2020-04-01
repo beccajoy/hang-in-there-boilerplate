@@ -56,8 +56,6 @@ Saved posters page (once working with extra saved posters):
 - When a user clicks the "Nevermind, take me back!" or "Back to Main" buttons, we should only see the main poster section
 - In summary: Be able to switch between the three views (main poster, form, and saved posters) on the correct button clicks
 
-_Hint: go check out the HTML and CSS files to see how the form and saved posters sections are being hidden in the first place_
-
 ## Iteration 2 - Creating a New Poster
 
 Form being filled out:
