@@ -11,11 +11,10 @@ Sometimes you need a pick me up. Remember those motivational posters that were a
 
 ## Set Up
 
-1. One teammate: fork this repository
-2. Go to settings and turn on GitHub Pages for this repository
-3. All teammates: clone down this repository
-4. `cd` into the repository
-5. Run `open index.html` to view it in the browser
+1. Fork this repository
+2. Clone down this repository
+3. `cd` into the repository
+4. Run `open index.html` to view it in the browser
 
 ## Project Goals
 - Write clean, DRY JavaScript to store our data
@@ -34,6 +33,7 @@ Sometimes you need a pick me up. Remember those motivational posters that were a
 ![screenshot of main page showing poster](/readme-imgs/homepage.png)
 
 - When the page loads, we should see a poster with a randomly selected image, title, and quote
+- We enabled the "Show Another Random Button" to also load a randomly selected image, title, and quote when clicked on
 
 ### Iteration 1 - Switching Views
 
@@ -72,6 +72,6 @@ Saved posters view:
 
 - When a user clicks the "Save This Poster" button, the current main poster will be added to the `savedPosters` array.
 - If a user clicks the "Save This Poster" more than once on a single poster, it will still only be saved once (no duplicates)
-
+- Since our Saved Posters Section is not currently revealing the grid of mini posters, which displays the Saved Posters array, we have left a `console.log(savedPosters)` (on line 171). Within the Dev Tools, when "Save This Poster" is clicked, the current savedPosters array will show, and demonstrate that duplicate poster's are not accepted.
 
 Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/hang-in-there.html)
