@@ -26,10 +26,12 @@ Sometimes you need a pick me up. Remember those motivational posters that were a
 ### Wins
 - Understanding and implementing git commands and branches
 - Working with DOM
+- Getting experience working remotely as a team
 
 ### Challenges
 - Mitigating differences in personal work preferences
 - Getting through the learning curve of code-pairing while 100% remote
+- Trying to work together when the skill levels are completely different
 
 ## Technologies Used
 - JavaScript
