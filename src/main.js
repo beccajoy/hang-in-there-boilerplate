@@ -14,6 +14,7 @@ var titleInput = document.getElementById("poster-title");
 var quoteInput = document.getElementById("poster-quote");
 var imageInput = document.getElementById("poster-image-url");
 var saveThisPosterButton = document.querySelector('.save-poster');
+var posterGallery = document.querySelector('.saved-posters-grid');
 
 var images = [
   "./assets/bees.jpg",
