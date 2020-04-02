@@ -73,10 +73,19 @@ Once poster is saved:
   - Change back to the main poster view (hiding the form view again)
   - Display the newly created poster image, title, and quote in the main view
 
-## Iteration 3 - Saving Posters
+## Iteration 3 - Saving & Viewing Posters
 
-- When a user clicks the "Save This Poster" button, the current main poster will be added to the `savedPosters` array.
+Saved posters view:
+![screenshot of saved posters page](/readme-imgs/saved.png)
+
+- When a user clicks the "Save This Poster" button, the current main poster will be added to the savedPosters array.
 - If a user clicks the "Save This Poster" more than once on a single poster, it will still only be saved once (no duplicates)
-- Since our Saved Posters Section is not currently revealing the grid of mini posters, which displays the Saved Posters array, we have left a `console.log(savedPosters)` (on line 171). Within the Dev Tools, when "Save This Poster" is clicked, the current savedPosters array will show, and demonstrate that duplicate poster's are not accepted.
+- When a user clicks the "Show Saved Posters" button, we should see the saved posters section
+- All the posters in the savedPosters array should be displayed in the saved posters grid section
+
+## Iteration 4 - Deleting Saved Posters
+
+- From the saved posters view, if a user double clicks a saved poster, it will be deleted
+
 
 ( Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/hang-in-there.html) )
