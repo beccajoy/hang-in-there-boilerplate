@@ -9,11 +9,11 @@ var savedPostersSection = document.querySelector('.saved-posters');
 var nevermindButton = document.querySelector('.show-main');
 var backToMainButton = document.querySelector('.back-to-main');
 var showPosterButton = document.querySelector('.make-poster');
+var showRandomButton = document.querySelector('.show-random');
 var titleInput = document.getElementById("poster-title");
 var quoteInput = document.getElementById("poster-quote");
 var imageInput = document.getElementById("poster-image-url");
 var saveThisPosterButton = document.querySelector('.save-poster');
-var showRandomButton = document.querySelector('.show-random');
 var posterGallery = document.querySelector('.saved-posters-grid');
 
 var images = [
@@ -125,11 +125,6 @@ showPosterButton.addEventListener('click', showPoster);
 showSavedButton.addEventListener('click', showSavedPosters);
 saveThisPosterButton.addEventListener('click', savePoster);
 
-
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
-}
-
 posterImage.src = images[getRandomIndex(images)];
 posterTitle.innerText = titles[getRandomIndex(titles)];
 posterQuote.innerText = quotes[getRandomIndex(quotes)];
@@ -138,6 +133,9 @@ function getRandomPoster() {
   posterImage.src = images[getRandomIndex(images)];
   posterTitle.innerText = titles[getRandomIndex(titles)];
   posterQuote.innerText = quotes[getRandomIndex(quotes)];
+
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
 }
 
 function showFormSection() {
@@ -153,6 +151,25 @@ function nevermindGoBack() {
 function backToMain() {
   mainPage.classList.remove('hidden');
   savedPostersSection.classList.add('hidden');
+}
+
+function getRandomPoster() {
+  posterImage.src = images[getRandomIndex(images)];
+  posterTitle.innerText = titles[getRandomIndex(titles)];
+  posterQuote.innerText = quotes[getRandomIndex(quotes)];
+}
+
+function savePoster() {
+  var currentPoster = new Poster(posterImage.src, posterTitle.innerText, posterQuote.innerText);
+  var foundPoster = savedPosters.find(function(value) {
+    if (currentPoster.imageURL === value.imageURL && currentPoster.title === value.title && currentPoster.quote === value.quote) {
+      return value;
+    }
+  })
+    if (foundPoster === undefined) {
+      savedPosters.push(currentPoster);
+    }
+  console.log(savedPosters)
 }
 
 function showPoster(event) {

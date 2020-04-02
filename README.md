@@ -1,22 +1,49 @@
 # Hang In There
 
-A boilerplate repo. 
+A boilerplate repo.
+
+## Contributors
+- Kyle Jones ([Kyle's GitHub](https://github.com/KJJones13)) & Becca Steinbrecher ([Becca's GitHub](https://github.com/beccajoy))
+- [GitHub Pages Deployed Site](https://beccajoy.github.io/hang-in-there-boilerplate/)
+
+## About
+Sometimes you need a pick me up. Remember those motivational posters that were all over the place in classrooms and online? We're going to make our own!
 
 ## Set Up
 
-1. One teammate: fork this repository
-2. Go to settings and turn on GitHub Pages for this repository
-3. All teammates: clone down this repository
-4. `cd` into the repository
-5. Run `open index.html` to view it in the browser
+1. Fork this repository
+2. Clone down this repository
+3. `cd` into the repository
+4. Run `open index.html` to view it in the browser
 
-## Progression
+## Project Goals
+- Write clean, DRY JavaScript to store our data
+- Use a provided class by creating object instances using the new keyword
+- Manipulate the page after it has loaded adding, removing, and updating elements on the DOM
+- Understand event bubbling and use event delegation on dynamic elements
+- Begin to understand how to write effective, clean HTML & CSS
+
+### Wins
+- Understanding and implementing git commands and branches
+- Working with DOM
+- Getting experience working remotely as a team
+
+### Challenges
+- Mitigating differences in personal work preferences
+- Getting through the learning curve of code-pairing while 100% remote
+- Trying to work together when the skill levels are completely different
+
+## Technologies Used
+- JavaScript
+
+## In Action
 
 ### Iteration 0 - Main Page
 
 ![screenshot of main page showing poster](/readme-imgs/homepage.png)
 
 - When the page loads, we should see a poster with a randomly selected image, title, and quote
+- We enabled the "Show Another Random Button" to also load a randomly selected image, title, and quote when clicked on
 
 ### Iteration 1 - Switching Views
 
@@ -30,8 +57,6 @@ Saved posters page (once working with extra saved posters):
 - When a user clicks the "View Saved Posters" button, we should see the saved posters area, and the main poster should be hidden
 - When a user clicks the "Nevermind, take me back!" or "Back to Main" buttons, we should only see the main poster section
 - In summary: Be able to switch between the three views (main poster, form, and saved posters) on the correct button clicks
-
-_Hint: go check out the HTML and CSS files to see how the form and saved posters sections are being hidden in the first place_
 
 ## Iteration 2 - Creating a New Poster
 
@@ -48,32 +73,10 @@ Once poster is saved:
   - Change back to the main poster view (hiding the form view again)
   - Display the newly created poster image, title, and quote in the main view
 
-## Iteration 3 - Saving & Viewing Posters
-
-Saved posters view:
-![screenshot of saved posters section](/readme-imgs/saved.png)
+## Iteration 3 - Saving Posters
 
 - When a user clicks the "Save This Poster" button, the current main poster will be added to the `savedPosters` array.
 - If a user clicks the "Save This Poster" more than once on a single poster, it will still only be saved once (no duplicates)
-- When a user clicks the "Show Saved Posters" button, we should see the saved posters section
-- All the posters in the `savedPosters` array should be displayed in the saved posters grid section
+- Since our Saved Posters Section is not currently revealing the grid of mini posters, which displays the Saved Posters array, we have left a `console.log(savedPosters)` (on line 171). Within the Dev Tools, when "Save This Poster" is clicked, the current savedPosters array will show, and demonstrate that duplicate poster's are not accepted.
 
-## Iteration 4 - Deleting Saved Posters
-
-- From the saved posters view, if a user double clicks a saved poster, it will be deleted
-
-_Hint: How will you update the data model to achieve this?_
-
-## Optional Extensions - Gettin' fancy
-
-Here's a list of possible extensions to implement - but **ONLY IF** your team has completed all the previous iterations **AND** have cleaned up your code to make it DRYer and more readable.
-
-You are welcome to add your own extensions. Be sure they are thoughtful in terms of UX/UI, and that they do not break any prior functionality.
-
-- Implement data validation and error handling into the form (disable button, provide error messages if data entered is not correct, etc)
-- In the main poster view, allow users to click each piece of the poster (image, title, quote) to update just that piece with another random item from the appropriate array
-- When a user single clicks a saved poster, create a modal to view it larger
-- Allow users to drag and drop saved posters into whatever order they want them to appear
-
-
-Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/hang-in-there.html)
+( Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/hang-in-there.html) )
