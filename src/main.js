@@ -177,7 +177,6 @@ function showPoster(event) {
 
 function savePoster() {
   var currentPoster = new Poster(posterImage.src, posterTitle.innerText, posterQuote.innerText);
-  console.log(currentPoster);
   var doesPosterExist = savedPosters.find(function(posterExisting) {
     if(currentPoster.imageURL === posterExisting.imageURL && currentPoster.title === posterExisting.title && currentPoster.quote === posterExisting.quote) {
       return posterExisting;
@@ -188,7 +187,6 @@ function savePoster() {
   if(doesPosterExist === undefined) {
     savedPosters.push(currentPoster);
   }
-  console.log(savedPosters);
 }
 
 function showSavedPosters() {
